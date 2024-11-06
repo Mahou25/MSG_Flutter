@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: ('Montserrat'),
       useMaterial3: true),
-      home: const HomeScreen(),
+      home:  HomeScreen(),
     );
   }
 }

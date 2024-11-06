@@ -2,678 +2,566 @@ import 'package:flutter/material.dart';
 import 'package:messagerie/screen/ChatScreen.dart';
 
 import 'package:messagerie/routes/app_routes.dart';
+import 'package:circular_profile_avatar/circular_profile_avatar.dart';
+import 'package:flutter/cupertino.dart';
 
-class HomeScreen extends StatelessWidget{
-  const HomeScreen ({Key ? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  HomeScreen({Key? key}) : super(key: key);
+  final TextEditingController _textController =
+      TextEditingController(text: 'Search here');
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xffB202D),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        // appBar: AppBar(
+
+        // ),
         body: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text("Message",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontFamily: ('Quicksand'),
-                      fontSize: 30,
-                      color: Colors.white,
-                    ),
-                  ),
-                  IconButton(icon: Icon(Icons.search),
-                    color: Colors.white,
-                    iconSize: 36,
-                    onPressed: (){},
-                  ),
-                ],
-              ),
-              SizedBox(height: 6,),
-              Text("R E C E N T", style: TextStyle(color:Colors.white ),),
-              SizedBox(height: 15,),
-              SizedBox(
-                height: 110,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
                   children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.blueGrey,
-                        ),
-                        SizedBox(height: 10,),
-                        Text("Barryar", style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18
-                        ),
-                        ),
-                      ],
+                    IconButton(
+                      icon: Icon(Icons.arrow_back),
+                      color: Colors.black,
+                      iconSize: 26,
+                      onPressed: () {},
                     ),
-                    SizedBox(width: 25,),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.amber,
-                        ),
-                        SizedBox(height: 10,),
-                        Text("Ursula", style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18
-                        ),
-                        ),
-                      ],
+                    const Text(
+                      "Chat",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontFamily: ('Quicksand'),
+                        fontSize: 25,
+                        color: Colors.black,
+                      ),
                     ),
-                    SizedBox(width: 25,),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.blue,
-                        ),
-                        SizedBox(height: 10,),
-                        Text("Franck", style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18
-                        ),
-                        ),
-                      ],
+                    SizedBox(
+                      width: 240,
                     ),
-                    SizedBox(width: 25,),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.brown,
-                        ),
-                        SizedBox(height: 10,),
-                        Text("Alban", style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18
-                        ),
-                        ),
-                      ],
-                    ),
-                     SizedBox(width: 25,),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.cyan,
-                        ),
-                        SizedBox(height: 10,),
-                        Text("Fifa", style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18
-                        ),
-                        ),
-                      ],
+                    IconButton(
+                      icon: Icon(Icons.note_alt),
+                      color: Colors.black,
+                      iconSize: 26,
+                      onPressed: () {},
                     ),
                   ],
                 ),
-              ),
-              SizedBox(height: 20,),
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Color(0xff292F3F),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(50),
-                    topRight: Radius.circular(50)
+                SizedBox(
+                  height: 30,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        TextField(
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 10.0, horizontal: 15.0),
+                            hintText: "Search",
+                            suffixIcon: Icon(Icons.search),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: const BorderSide(),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                height: 400,
-                child:ListView(
-                  scrollDirection: Axis.vertical,
+                SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+
+                  child: SizedBox(
+                    height: 110,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 10,
+                            ),
+                            CircleAvatar(
+                              radius: 30,
+                              backgroundColor: Colors.grey,
+                              child: Icon(Icons.add, color: Colors.grey.shade50,),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "My Story",
+                              style:
+                              TextStyle(color: Colors.black, fontSize: 18),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              radius: 30,
+                              backgroundColor: Colors.blue,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Franck",
+                              style:
+                              TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              radius: 30,
+                              backgroundColor: Colors.amber,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Ursula",
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              radius: 30,
+                              backgroundColor: Colors.blue,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Franck",
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              radius: 30,
+                              backgroundColor: Colors.blue,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Franck",
+                              style:
+                              TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              radius: 30,
+                              backgroundColor: Colors.cyan,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Fifa",
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    // borderRadius: BorderRadius.only(
+                    //     topLeft: Radius.circular(50),
+                    //     topRight: Radius.circular(50)),
+                  ),
+                  height: 350,
+                  child: ListView(
+                    scrollDirection: Axis.vertical,
                     children: [
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           Navigator.pushNamed(context, AppRoutes.smoneMsg);
                         },
                         child: Padding(
-                          padding: const EdgeInsets.only(left:30 , top:35 ,right:10 ),
+                          padding: const EdgeInsets.only(
+                              left: 15, top: 35, right: 10),
                           child: Row(
-                            children: [                          
+                            children: [
                               CircleAvatar(
                                 radius: 30,
-                                backgroundColor: Colors.deepOrangeAccent,
+                                backgroundColor: Colors.red,
                               ),
-                              SizedBox(width: 10,),
+                              SizedBox(
+                                width: 10,
+                              ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text("Danny Hopkins",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontFamily: ('Quicksand'),
-                                        fontSize: 17,
+                                      // Première colonne avec un texte de largeur fixe
+                                      Container(
+                                        width:
+                                            200, // Taille fixe pour le texte, ajustez selon vos besoins
+                                        padding: EdgeInsets.all(
+                                            8.0), // Optionnel : ajoute de l'espace autour du texte
+                                        child: Text(
+                                          "Danny Hopskin",
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: 'Quicksand',
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 17,
+                                          ),
+                                          overflow: TextOverflow
+                                              .ellipsis, // Affiche "..." si le texte dépasse
+                                        ),
                                       ),
-                                      ),
-                                      SizedBox(width: 60,),
-                                      Text("08:43", style: TextStyle(
-                                        color: Colors.white
-                                      ),
+                                      // Espacement entre les colonnes
+                                      SizedBox(
+                                          width:
+                                              20), // Définit un espace fixe entre les colonnes
+                                      // Deuxième colonne pour l'heure
+                                      Text(
+                                        "08:43",
+                                        style: TextStyle(color: Colors.black),
                                       ),
                                     ],
                                   ),
-                                  Text("dannylove@gmail.com",
-                                  style: TextStyle(
-                                    color: Colors.white70,
-                                    ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 200,
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Text(
+                                          "Quand est-ce que les notes de service vont sortir ?",
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                          ),
+                                          overflow: TextOverflow
+                                              .ellipsis, // Affiche "..." si le texte dépasse
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               )
                             ],
-                            ),
+                          ),
                         ),
                       ),
-                      SizedBox(height: 5,),
-                      Padding(
-                        padding: const EdgeInsets.only(left:30 , top:35 ,right:10 ),
-                        child: Row(
-                          children: [                          
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundColor: Colors.deepPurple,
-                            ),
-                            SizedBox(width: 10,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("Twilight Anderson",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: ('Quicksand'),
-                                      fontSize: 17,
-                                    ),
-                                    ),
-                                    SizedBox(width: 60,),
-                                    Text("04:33", style: TextStyle(
-                                      color: Colors.white
-                                    ),
-                                    ),
-                                  ],
-                                ),
-                                Text("Quel autre tuto tu proposes ?",
-                                style: TextStyle(
-                                  color: Colors.white70,
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                          ),
+                      SizedBox(
+                        height: 10,
                       ),
-                      SizedBox(height: 5,),
-                      Padding(
-                        padding: const EdgeInsets.only(left:30 , top:35 ,right:10 ),
-                        child: Row(
-                          children: [                          
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundColor: Colors.green,
-                            ),
-                            SizedBox(width: 10,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("Gonzalex Antonio",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: ('Quicksand'),
-                                      fontSize: 17,
-                                    ),
-                                    ),
-                                    SizedBox(width: 60,),
-                                    Text("14:33", style: TextStyle(
-                                      color: Colors.white
-                                    ),
-                                    ),
-                                  ],
-                                ),
-                                Text("Cc, t'es là ?",
-                                style: TextStyle(
-                                  color: Colors.white70,
+                      GestureDetector(
+                        onTap: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 20, top: 35, right: 10),
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                radius: 30,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 243, 137, 172),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      // Première colonne avec un texte de largeur fixe
+                                      Container(
+                                        width:
+                                            200, // Taille fixe pour le texte, ajustez selon vos besoins
+                                        padding: EdgeInsets.all(
+                                            8.0), // Optionnel : ajoute de l'espace autour du texte
+                                        child: Text(
+                                          "Danny Hopskin",
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: 'Quicksand',
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 17,
+                                          ),
+                                          overflow: TextOverflow
+                                              .ellipsis, // Affiche "..." si le texte dépasse
+                                        ),
+                                      ),
+                                      // Espacement entre les colonnes
+                                      SizedBox(
+                                          width:
+                                              20), // Définit un espace fixe entre les colonnes
+                                      // Deuxième colonne pour l'heure
+                                      Text(
+                                        "08:43",
+                                        style: TextStyle(color: Colors.black),
+                                      ),
+                                    ],
                                   ),
-                                ),
-                              ],
-                            )
-                          ],
-                          ),
-                      ),
-                      SizedBox(height: 5,),
-                      Padding(
-                        padding: const EdgeInsets.only(left:30 , top:35 ,right:10 ),
-                        child: Row(
-                          children: [                          
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundColor: Colors.lightBlue,
-                            ),
-                            SizedBox(width: 10,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("San Pedro",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: ('Quicksand'),
-                                      fontSize: 17,
-                                    ),
-                                    ),
-                                    SizedBox(width: 60,),
-                                    Text("18:22", style: TextStyle(
-                                      color: Colors.white
-                                    ),
-                                    ),
-                                  ],
-                                ),
-                                Text("OK Cool !",
-                                style: TextStyle(
-                                  color: Colors.white70,
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 200,
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Text(
+                                          "Quel autre tuto tu proposes ?",
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                          ),
+                                          overflow: TextOverflow
+                                              .ellipsis, // Affiche "..." si le texte dépasse
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ),
-                              ],
-                            )
-                          ],
+                                ],
+                              )
+                            ],
                           ),
+                        ),
                       ),
-                      SizedBox(height: 5,),
-                      Padding(
-                        padding: const EdgeInsets.only(left:30 , top:35 ,right:10 ),
-                        child: Row(
-                          children: [                          
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundColor: Colors.indigoAccent,
-                            ),
-                            SizedBox(width: 10,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("My Dad",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: ('Quicksand'),
-                                      fontSize: 17,
-                                    ),
-                                    ),
-                                    SizedBox(width: 60,),
-                                    Text("Sat", style: TextStyle(
-                                      color: Colors.white
-                                    ),
-                                    ),
-                                  ],
-                                ),
-                                Text("D'accord Papa",
-                                style: TextStyle(
-                                  color: Colors.white70,
+                      SizedBox(
+                        height: 10,
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 20, top: 35, right: 10),
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                radius: 30,
+                                backgroundColor: Colors.deepPurple,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      // Première colonne avec un texte de largeur fixe
+                                      Container(
+                                        width:
+                                            200, // Taille fixe pour le texte, ajustez selon vos besoins
+                                        padding: EdgeInsets.all(
+                                            8.0), // Optionnel : ajoute de l'espace autour du texte
+                                        child: Text(
+                                          "Danny Hopskin",
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: 'Quicksand',
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 17,
+                                          ),
+                                          overflow: TextOverflow
+                                              .ellipsis, // Affiche "..." si le texte dépasse
+                                        ),
+                                      ),
+                                      // Espacement entre les colonnes
+                                      SizedBox(
+                                          width:
+                                              20), // Définit un espace fixe entre les colonnes
+                                      // Deuxième colonne pour l'heure
+                                      Text(
+                                        "08:43",
+                                        style: TextStyle(color: Colors.black),
+                                      ),
+                                    ],
                                   ),
-                                ),
-                              ],
-                            )
-                          ],
-                          ),
-                      ),
-                      SizedBox(height: 5,),
-                      Padding(
-                        padding: const EdgeInsets.only(left:30 , top:35 ,right:10 ),
-                        child: Row(
-                          children: [                          
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundColor: Colors.deepPurple,
-                            ),
-                            SizedBox(width: 10,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("Twilight Anderson",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: ('Quicksand'),
-                                      fontSize: 17,
-                                    ),
-                                    ),
-                                    SizedBox(width: 60,),
-                                    Text("04:33", style: TextStyle(
-                                      color: Colors.white
-                                    ),
-                                    ),
-                                  ],
-                                ),
-                                Text("Quel autre tuto tu proposes ?",
-                                style: TextStyle(
-                                  color: Colors.white70,
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 200,
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Text(
+                                          "Quel autre tuto tu proposes ?",
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                          ),
+                                          overflow: TextOverflow
+                                              .ellipsis, // Affiche "..." si le texte dépasse
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ),
-                              ],
-                            )
-                          ],
+                                ],
+                              )
+                            ],
                           ),
+                        ),
                       ),
-                      SizedBox(height: 5,),
-                      Padding(
-                        padding: const EdgeInsets.only(left:30 , top:35 ,right:10 ),
-                        child: Row(
-                          children: [                          
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundColor: Colors.green,
-                            ),
-                            SizedBox(width: 10,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("Gonzalex Antonio",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: ('Quicksand'),
-                                      fontSize: 17,
-                                    ),
-                                    ),
-                                    SizedBox(width: 60,),
-                                    Text("14:33", style: TextStyle(
-                                      color: Colors.white
-                                    ),
-                                    ),
-                                  ],
-                                ),
-                                Text("Cc, t'es là ?",
-                                style: TextStyle(
-                                  color: Colors.white70,
+                      SizedBox(
+                        height: 10,
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 20, top: 35, right: 10),
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                radius: 30,
+                                backgroundColor: Colors.red,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      // Première colonne avec un texte de largeur fixe
+                                      Container(
+                                        width:
+                                            200, // Taille fixe pour le texte, ajustez selon vos besoins
+                                        padding: EdgeInsets.all(
+                                            8.0), // Optionnel : ajoute de l'espace autour du texte
+                                        child: Text(
+                                          "Danny Hopskin",
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: 'Quicksand',
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 17,
+                                          ),
+                                          overflow: TextOverflow
+                                              .ellipsis, // Affiche "..." si le texte dépasse
+                                        ),
+                                      ),
+                                      // Espacement entre les colonnes
+                                      SizedBox(
+                                          width:
+                                              20), // Définit un espace fixe entre les colonnes
+                                      // Deuxième colonne pour l'heure
+                                      Text(
+                                        "08:43",
+                                        style: TextStyle(color: Colors.black),
+                                      ),
+                                    ],
                                   ),
-                                ),
-                              ],
-                            )
-                          ],
-                          ),
-                      ),
-                      SizedBox(height: 5,),
-                      Padding(
-                        padding: const EdgeInsets.only(left:30 , top:35 ,right:10 ),
-                        child: Row(
-                          children: [                          
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundColor: Colors.lightBlue,
-                            ),
-                            SizedBox(width: 10,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("San Pedro",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: ('Quicksand'),
-                                      fontSize: 17,
-                                    ),
-                                    ),
-                                    SizedBox(width: 60,),
-                                    Text("18:22", style: TextStyle(
-                                      color: Colors.white
-                                    ),
-                                    ),
-                                  ],
-                                ),
-                                Text("OK Cool !",
-                                style: TextStyle(
-                                  color: Colors.white70,
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 200,
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Text(
+                                          "Quel autre tuto tu proposes ?",
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                          ),
+                                          overflow: TextOverflow
+                                              .ellipsis, // Affiche "..." si le texte dépasse
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ),
-                              ],
-                            )
-                          ],
+                                ],
+                              )
+                            ],
                           ),
+                        ),
                       ),
-                      SizedBox(height: 5,),
-                      Padding(
-                        padding: const EdgeInsets.only(left:30 , top:35 ,right:10 ),
-                        child: Row(
-                          children: [                          
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundColor: Colors.indigoAccent,
-                            ),
-                            SizedBox(width: 10,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("My Dad",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: ('Quicksand'),
-                                      fontSize: 17,
-                                    ),
-                                    ),
-                                    SizedBox(width: 60,),
-                                    Text("Sat", style: TextStyle(
-                                      color: Colors.white
-                                    ),
-                                    ),
-                                  ],
-                                ),
-                                Text("D'accord Papa",
-                                style: TextStyle(
-                                  color: Colors.white70,
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                          ),
+                      SizedBox(
+                        height: 10,
                       ),
-                      SizedBox(height: 5,),
-                      Padding(
-                        padding: const EdgeInsets.only(left:30 , top:35 ,right:10 ),
-                        child: Row(
-                          children: [                          
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundColor: Colors.deepPurple,
-                            ),
-                            SizedBox(width: 10,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("Twilight Anderson",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: ('Quicksand'),
-                                      fontSize: 17,
-                                    ),
-                                    ),
-                                    SizedBox(width: 60,),
-                                    Text("04:33", style: TextStyle(
-                                      color: Colors.white
-                                    ),
-                                    ),
-                                  ],
-                                ),
-                                Text("Quel autre tuto tu proposes ?",
-                                style: TextStyle(
-                                  color: Colors.white70,
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                          ),
-                      ),
-                      SizedBox(height: 5,),
-                      Padding(
-                        padding: const EdgeInsets.only(left:30 , top:35 ,right:10 ),
-                        child: Row(
-                          children: [                          
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundColor: Colors.green,
-                            ),
-                            SizedBox(width: 10,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("Gonzalex Antonio",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: ('Quicksand'),
-                                      fontSize: 17,
-                                    ),
-                                    ),
-                                    SizedBox(width: 60,),
-                                    Text("14:33", style: TextStyle(
-                                      color: Colors.white
-                                    ),
-                                    ),
-                                  ],
-                                ),
-                                Text("Cc, t'es là ?",
-                                style: TextStyle(
-                                  color: Colors.white70,
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                          ),
-                      ),
-                      SizedBox(height: 5,),
-                      Padding(
-                        padding: const EdgeInsets.only(left:30 , top:35 ,right:10 ),
-                        child: Row(
-                          children: [                          
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundColor: Colors.lightBlue,
-                            ),
-                            SizedBox(width: 10,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("San Pedro",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: ('Quicksand'),
-                                      fontSize: 17,
-                                    ),
-                                    ),
-                                    SizedBox(width: 60,),
-                                    Text("18:22", style: TextStyle(
-                                      color: Colors.white
-                                    ),
-                                    ),
-                                  ],
-                                ),
-                                Text("OK Cool !",
-                                style: TextStyle(
-                                  color: Colors.white70,
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                          ),
-                      ),
-                      SizedBox(height: 5,),
-                      Padding(
-                        padding: const EdgeInsets.only(left:30 , top:35 ,right:10 ),
-                        child: Row(
-                          children: [                          
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundColor: Colors.indigoAccent,
-                            ),
-                            SizedBox(width: 10,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("My Dad",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: ('Quicksand'),
-                                      fontSize: 17,
-                                    ),
-                                    ),
-                                    SizedBox(width: 60,),
-                                    Text("Sat", style: TextStyle(
-                                      color: Colors.white
-                                    ),
-                                    ),
-                                  ],
-                                ),
-                                Text("D'accord Papa",
-                                style: TextStyle(
-                                  color: Colors.white70,
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                          ),
-                      ),
-                      
-                      ],
+                    ],
                   ),
                 ),
-              
-                        
-            ],
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: MediaQuery.of(context)
+                      .size
+                      .width, // Prend toute la largeur de l'écran
+                  height: 1.0, // Définir l'épaisseur de la ligne
+                  color: Colors.black26, // Couleur noire
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                TabBar(
+                  tabs: [
+                    Tab(
+                      icon: Icon(Icons.person_outline_rounded),
+                    ),
+                    Tab(
+                      icon: Icon(Icons.group_outlined),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        )
+        ),
+      ),
     );
   }
 }
