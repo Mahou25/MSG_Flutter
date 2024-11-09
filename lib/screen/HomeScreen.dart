@@ -264,7 +264,7 @@ class HomeScreen extends StatelessWidget {
                                         padding: EdgeInsets.all(
                                             8.0), // Optionnel : ajoute de l'espace autour du texte
                                         child: Text(
-                                          "Danny Hopskin",
+                                          "Smith Mathew",
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontFamily: 'Quicksand',
@@ -295,6 +295,7 @@ class HomeScreen extends StatelessWidget {
                                           "Quand est-ce que les notes de service vont sortir ?",
                                           style: TextStyle(
                                             color: Colors.black,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                           overflow: TextOverflow
                                               .ellipsis, // Affiche "..." si le texte dépasse
@@ -355,7 +356,7 @@ class HomeScreen extends StatelessWidget {
                                               20), // Définit un espace fixe entre les colonnes
                                       // Deuxième colonne pour l'heure
                                       Text(
-                                        "08:43",
+                                        "Hier",
                                         style: TextStyle(color: Colors.black),
                                       ),
                                     ],
@@ -428,7 +429,7 @@ class HomeScreen extends StatelessWidget {
                                               20), // Définit un espace fixe entre les colonnes
                                       // Deuxième colonne pour l'heure
                                       Text(
-                                        "08:43",
+                                        "08/11/24",
                                         style: TextStyle(color: Colors.black),
                                       ),
                                     ],
